@@ -35,6 +35,7 @@ const Home = () => {
           <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">Control and monitor your home with elegance and precision. Experience advanced automation at your fingertips.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#devices" className="bg-primary hover:bg-primary/90 text-white py-4 px-8 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">Control Devices</a>
+            <a href="/" className="border-2 border-white hover:bg-white hover:text-dark text-white py-4 px-8 rounded-full font-semibold transition-all duration-300">Dashboard</a>
             <button onClick={() => alert('Login functionality would integrate with backend here. For demo, assume logged in.')} className="border-2 border-white hover:bg-white hover:text-dark text-white py-4 px-8 rounded-full font-semibold transition-all duration-300">Login</button>
           </div>
         </div>
