@@ -6,3 +6,40 @@ body {
   background-color: #F3F4F6;
   font-family: system-ui, -apple-system, sans-serif;
 }
+
+.hero-bg {
+  background: linear-gradient(135deg, rgba(128, 0, 32, 0.9), rgba(28, 28, 28, 0.8)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.device-on {
+  background-color: #FFD700;
+  color: #1C1C1C;
+}
+
+.device-off {
+  background-color: #F5F5DC;
+  color: #2F4F4F;
+}
