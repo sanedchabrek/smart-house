@@ -4,6 +4,7 @@ const Home = () => {
   const [devices, setDevices] = useState({ light: false, security: false, climate: false })
   const [energyUsage, setEnergyUsage] = useState(245)
   const [alerts, setAlerts] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const toggleDevice = (device: keyof typeof devices) => {
     setDevices(prev => ({ ...prev, [device]: !prev[device] }))
@@ -12,6 +13,19 @@ const Home = () => {
   const updateAnalytics = () => {
     setEnergyUsage(Math.floor(Math.random() * 300))
     setAlerts(Math.floor(Math.random() * 5))
+  }
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setMobileMenuOpen(false)
+  }
+
+  const handleSettingsSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    alert('Settings saved successfully!')
   }
 
   useEffect(() => {
@@ -24,6 +38,26 @@ const Home = () => {
       })
     }, observerOptions)
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el))
+
+    // Smooth scrolling for anchor links
+    const handleAnchorClick = (e: Event) => {
+      const target = e.target as HTMLAnchorElement
+      if (target.hash) {
+        e.preventDefault()
+        const sectionId = target.hash.substring(1)
+        scrollToSection(sectionId)
+      }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', handleAnchorClick)
+    })
+
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.removeEventListener('click', handleAnchorClick)
+      })
+    }
   }, [])
 
   return (
@@ -33,17 +67,26 @@ const Home = () => {
         <div className="container mx-auto px-6 flex justify-between items-center">
           <div className="text-3xl font-bold text-primary">Smart House</div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="hover:text-secondary transition-colors duration-300">Home</a>
-            <a href="#devices" className="hover:text-secondary transition-colors duration-300">Devices</a>
-            <a href="#analytics" className="hover:text-secondary transition-colors duration-300">Analytics</a>
-            <a href="#settings" className="hover:text-secondary transition-colors duration-300">Settings</a>
+            <button onClick={() => scrollToSection('home')} className="hover:text-secondary transition-colors duration-300">Home</button>
+            <button onClick={() => scrollToSection('devices')} className="hover:text-secondary transition-colors duration-300">Devices</button>
+            <button onClick={() => scrollToSection('analytics')} className="hover:text-secondary transition-colors duration-300">Analytics</button>
+            <button onClick={() => scrollToSection('settings')} className="hover:text-secondary transition-colors duration-300">Settings</button>
             <a href="/" className="hover:text-secondary transition-colors duration-300">Dashboard</a>
           </nav>
-          <button onClick={() => alert('Mobile menu not implemented yet')} className="md:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
+        </div>
+        <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} bg-dark py-4`}>
+          <div className="container mx-auto px-6 flex flex-col space-y-4">
+            <button onClick={() => scrollToSection('home')} className="hover:text-secondary transition-colors duration-300 text-left">Home</button>
+            <button onClick={() => scrollToSection('devices')} className="hover:text-secondary transition-colors duration-300 text-left">Devices</button>
+            <button onClick={() => scrollToSection('analytics')} className="hover:text-secondary transition-colors duration-300 text-left">Analytics</button>
+            <button onClick={() => scrollToSection('settings')} className="hover:text-secondary transition-colors duration-300 text-left">Settings</button>
+            <a href="/" className="hover:text-secondary transition-colors duration-300">Dashboard</a>
+          </div>
         </div>
       </header>
 
@@ -125,10 +168,10 @@ const Home = () => {
       <section id="settings" className="py-24 bg-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-8 text-dark scroll-reveal">Settings</h2>
-          <form className="max-w-2xl mx-auto bg-neutral p-10 rounded-3xl shadow-lg">
+          <form onSubmit={handleSettingsSubmit} className="max-w-2xl mx-auto bg-neutral p-10 rounded-3xl shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input type="text" placeholder="Full Name" className="w-full p-4 border border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors" />
-              <input type="email" placeholder="Email" className="w-full p-4 border border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors" />
+              <input type="text" placeholder="Full Name" required className="w-full p-4 border border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors" />
+              <input type="email" placeholder="Email" required className="w-full p-4 border border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors" />
             </div>
             <textarea placeholder="Preferences" className="w-full p-4 mb-6 border border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors" rows={4}></textarea>
             <button type="submit" className="bg-primary hover:bg-primary/90 text-white py-4 px-8 rounded-full font-semibold transition-all duration-300 w-full shadow-lg">Save Settings</button>
