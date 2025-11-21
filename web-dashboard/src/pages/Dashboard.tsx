@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Home, Users, Smartphone, AlertTriangle, Activity } from 'lucide-react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
+import { Home, Users, Smartphone, AlertTriangle } from 'lucide-react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const Dashboard = () => {
   // Mock data
