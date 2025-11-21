@@ -1,26 +1,30 @@
-/* Quantum-advanced pastel blue and beige color palette with dynamic theming and custom properties */
+/* Luxurious and classy color palette with sophisticated gradients and premium aesthetics */
 :root {
-    --primary: #AEC6CF; /* Soft pastel blue */
-    --secondary: #F5F5DC; /* Warm beige */
-    --accent: #D2B48C; /* Elegant tan */
-    --highlight: #87CEEB; /* Sky blue */
-    --text: #5F6B7A; /* Sophisticated gray */
-    --shadow: rgba(0, 0, 0, 0.1);
-    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    --deep-blue: #2C3E50; /* For contrast */
-    --animation-duration: 0.5s;
-    --border-radius: 20px;
+    --primary: #1A1A2E; /* Deep navy blue */
+    --secondary: #F8F8FF; /* Pure white */
+    --accent: #D4AF37; /* Antique gold */
+    --highlight: #B8860B; /* Dark goldenrod */
+    --text: #2F4F4F; /* Dark slate gray */
+    --shadow: rgba(0, 0, 0, 0.15);
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%);
+    --deep-blue: #000080; /* Navy blue */
+    --luxury-gold: #FFD700; /* Gold */
+    --animation-duration: 0.6s;
+    --border-radius: 25px;
+    --elegant-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Times New Roman', serif;
     margin: 0;
     padding: 0;
-    background: var(--secondary);
+    background: linear-gradient(180deg, var(--secondary) 0%, #F0F8FF 100%);
     color: var(--text);
-    line-height: 1.8;
+    line-height: 1.9;
     overflow-x: hidden;
-    transition: background var(--animation-duration), color var(--animation-duration);
+    transition: all var(--animation-duration) ease;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Advanced header with glassmorphism, theme toggle, voice search, and notification bell */
@@ -144,18 +148,19 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* Hero with advanced parallax, typing effect, 3D tilt, particle background, and WebGL canvas */
+/* Hero with luxurious parallax, elegant animations, and sophisticated design */
 .hero {
     background: var(--gradient);
-    height: 80vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--luxury-gold);
     position: relative;
     overflow: hidden;
-    perspective: 1000px;
+    perspective: 1200px;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
 }
 
 .hero::before {
@@ -165,10 +170,11 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://via.placeholder.com/1920x600/AEC6CF/D2B48C?text=Quantum+Advanced+Smart+Home') no-repeat center/cover;
-    opacity: 0.25;
+    background: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+    opacity: 0.3;
     transform: scale(1.1);
-    animation: parallax 10s ease-in-out infinite alternate;
+    animation: parallax 15s ease-in-out infinite alternate;
+    filter: sepia(20%) saturate(1.2) brightness(0.8);
 }
 
 .particles {
@@ -225,19 +231,24 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Georgia', serif;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
 }
 
 .hero p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 3rem;
-    opacity: 0.95;
-    font-weight: 300;
+    opacity: 0.9;
+    font-weight: 400;
+    font-style: italic;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn {
@@ -258,13 +269,13 @@ nav a:hover {
     box-shadow: 0 10px 30px rgba(135, 206, 235, 0.5);
 }
 
-/* Features with advanced grid, hover effects, staggered animation, icons, and glow */
+/* Features with elegant design, sophisticated hover effects, and premium aesthetics */
 .features {
-    padding: 6rem 3rem;
-    background: white;
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #E6E6FA 100%);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 4rem;
     position: relative;
 }
 
@@ -275,102 +286,131 @@ nav a:hover {
     left: 0;
     right: 0;
     height: 100%;
-    background: linear-gradient(45deg, transparent 49%, var(--accent) 50%, transparent 51%);
-    opacity: 0.05;
+    background: radial-gradient(circle at center, var(--accent) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.03;
     z-index: -1;
 }
 
 .feature {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 4rem 3rem;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px var(--shadow);
-    transition: all var(--animation-duration) ease;
+    box-shadow: var(--elegant-shadow);
+    transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: elegantFadeIn 0.8s ease-out forwards;
     opacity: 0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.feature:nth-child(1) { animation-delay: 0.2s; }
-.feature:nth-child(2) { animation-delay: 0.4s; }
-.feature:nth-child(3) { animation-delay: 0.6s; }
+.feature:nth-child(1) { animation-delay: 0.3s; }
+.feature:nth-child(2) { animation-delay: 0.5s; }
+.feature:nth-child(3) { animation-delay: 0.7s; }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes elegantFadeIn {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .feature::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
     background: var(--gradient);
     opacity: 0;
     transition: opacity var(--animation-duration);
-    transform: rotate(45deg);
 }
 
 .feature:hover::before {
-    opacity: 0.1;
+    opacity: 1;
 }
 
 .feature:hover {
-    transform: translateY(-10px) rotate(1deg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    border-color: var(--accent);
 }
 
 .feature .icon {
-    font-size: 4rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s;
+    font-size: 5rem;
+    color: var(--highlight);
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .feature:hover .icon {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
+    color: var(--luxury-gold);
 }
 
 .feature h3 {
     color: var(--primary);
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    font-weight: 600;
-    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-family: 'Georgia', serif;
+    text-transform: capitalize;
+    letter-spacing: 1px;
 }
 
 .feature p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: italic;
 }
 
-/* Quantum-advanced dashboard with live chart, carousel, and real-time data simulation */
+/* Sophisticated dashboard with elegant design and premium data visualization */
 .dashboard {
-    padding: 6rem 3rem;
-    background: var(--gradient);
-    color: white;
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--deep-blue) 100%);
+    color: var(--luxury-gold);
     text-align: center;
     position: relative;
+    overflow: hidden;
+}
+
+.dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,215,0,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,215,0,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.5;
+    z-index: 1;
 }
 
 .dashboard h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    font-weight: 400;
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
 }
 
 .chart-container {
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 3rem;
     border-radius: var(--border-radius);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: var(--elegant-shadow);
+    position: relative;
+    z-index: 2;
 }
 
 canvas {
@@ -434,32 +474,37 @@ canvas {
 .carousel-controls.prev { left: 10px; }
 .carousel-controls.next { right: 10px; }
 
-/* AI Chatbot section with advanced responses */
+/* Elegant AI Chatbot section with sophisticated design */
 .chatbot {
-    padding: 6rem 3rem;
-    background: var(--secondary);
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--secondary) 0%, #F5F5F5 100%);
     text-align: center;
+    position: relative;
 }
 
 .chatbot h3 {
     color: var(--primary);
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    font-weight: 400;
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .chat-window {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px var(--shadow);
-    padding: 1rem;
-    height: 300px;
+    box-shadow: var(--elegant-shadow);
+    padding: 2rem;
+    height: 400px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    border: 2px solid var(--accent);
+    backdrop-filter: blur(10px);
 }
 
 .chat-messages {
@@ -488,45 +533,64 @@ canvas {
     cursor: pointer;
 }
 
-/* VR Preview section */
+/* Premium VR Preview section with luxurious design */
 .vr-preview {
-    padding: 6rem 3rem;
-    background: var(--gradient);
-    color: white;
+    padding: 8rem 4rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--deep-blue) 100%);
+    color: var(--luxury-gold);
     text-align: center;
+    position: relative;
 }
 
 .vr-preview h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    font-weight: 400;
+    font-family: 'Georgia', serif;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 .vr-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4rem;
     border-radius: var(--border-radius);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: var(--elegant-shadow);
+    position: relative;
+}
+
+.vr-container p {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    line-height: 1.8;
 }
 
 .vr-btn {
-    background: var(--highlight);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 30px;
+    background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--highlight) 100%);
+    color: var(--primary);
+    padding: 1.5rem 3rem;
+    border: 2px solid var(--luxury-gold);
+    border-radius: 40px;
     font-weight: 600;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: all var(--animation-duration);
+    transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
 }
 
 .vr-btn:hover {
-    background: white;
-    color: var(--deep-blue);
-    transform: scale(1.05);
+    background: var(--primary);
+    color: var(--luxury-gold);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+    border-color: var(--luxury-gold);
 }
 
 /* Footer with advanced contact form, social links, and newsletter */
