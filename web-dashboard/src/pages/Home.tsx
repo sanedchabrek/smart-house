@@ -1,56 +1,82 @@
-import { motion } from 'framer-motion'
-import { Home as HomeIcon, Users, Smartphone, AlertTriangle, Zap } from 'lucide-react'
-
 const Home = () => {
-  const features = [
-    { title: 'Manage Homes', description: 'Control and monitor multiple smart homes', icon: HomeIcon, path: '/homes' },
-    { title: 'User Management', description: 'Add and manage system users', icon: Users, path: '/users' },
-    { title: 'Device Control', description: 'Monitor and control IoT devices', icon: Smartphone, path: '/devices' },
-    { title: 'Alerts & Security', description: 'View and respond to system alerts', icon: AlertTriangle, path: '/alerts' },
-    { title: 'Automations', description: 'Create and manage smart automations', icon: Zap, path: '/automations' },
-  ]
-
   return (
-    <div className="p-6 space-y-6">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center"
-      >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Smart House</h1>
-        <p className="text-lg text-gray-600">Your comprehensive admin dashboard for managing smart homes and IoT devices</p>
-      </motion.div>
+    <div>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="particles">
+          {/* Add particles dynamically if needed */}
+        </div>
+        <canvas className="webgl-canvas" id="webgl-canvas"></canvas>
+        <div className="hero-content">
+          <h1>SmartHome Elite</h1>
+          <p>Quantum-Advanced Modern Living with AI Integration and 3D Visualization</p>
+          <a href="#features" className="btn">Explore Features</a>
+        </div>
+      </section>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {features.map((feature, index) => (
-          <motion.div
-            key={feature.title}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.1 + 0.3 }}
-            className="bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 hover:bg-white/20 transition-colors cursor-pointer"
-            onClick={() => window.location.href = feature.path}
-          >
-            <feature.icon className="w-12 h-12 text-primary mb-4" />
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
-            <p className="text-gray-600">{feature.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+      {/* Features Section */}
+      <section id="features" className="features">
+        <div className="feature">
+          <div className="icon">🏠</div>
+          <h3>Smart Home Control</h3>
+          <p>Seamlessly manage all your smart devices from a single, intuitive interface with voice commands and automation.</p>
+        </div>
+        <div className="feature">
+          <div className="icon">🤖</div>
+          <h3>AI-Powered Insights</h3>
+          <p>Leverage advanced AI algorithms to optimize energy usage, predict maintenance needs, and enhance security.</p>
+        </div>
+        <div className="feature">
+          <div className="icon">🌐</div>
+          <h3>IoT Integration</h3>
+          <p>Connect and control a wide range of IoT devices, from thermostats to security cameras, all in one ecosystem.</p>
+        </div>
+      </section>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="text-center mt-12"
-      >
-        <p className="text-gray-500">Navigate using the sidebar to access detailed management features</p>
-      </motion.div>
+      {/* Dashboard Preview */}
+      <section className="dashboard">
+        <h2>Live Dashboard</h2>
+        <div className="chart-container">
+          <canvas id="dashboard-chart"></canvas>
+        </div>
+        <div className="real-time-data">
+          <div className="data-item">
+            <h4>Temperature</h4>
+            <p>22°C</p>
+          </div>
+          <div className="data-item">
+            <h4>Humidity</h4>
+            <p>60%</p>
+          </div>
+          <div className="data-item">
+            <h4>Energy Usage</h4>
+            <p>1.2 kWh</p>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Chatbot */}
+      <section className="chatbot">
+        <h3>AI Assistant</h3>
+        <div className="chat-window">
+          <div className="chat-messages" id="chat-messages">
+            <p><strong>AI:</strong> Hello! How can I help you with your smart home today?</p>
+          </div>
+          <div className="chat-input">
+            <input type="text" id="chat-input" placeholder="Ask me anything..." />
+            <button id="send-btn">Send</button>
+          </div>
+        </div>
+      </section>
+
+      {/* VR Preview */}
+      <section className="vr-preview">
+        <h2>Virtual Reality Preview</h2>
+        <div className="vr-container">
+          <p>Experience your smart home in immersive 3D. Walk through your virtual space and interact with devices.</p>
+          <button className="vr-btn">Enter VR Mode</button>
+        </div>
+      </section>
     </div>
   )
 }
