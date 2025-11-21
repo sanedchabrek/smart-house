@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum-Advanced Smart Home Homepage with AI Integration and 3D Visualization">
+    <meta name="theme-color" content="#AEC6CF">
+    <link rel="manifest" href="data:application/manifest+json,{%22name%22:%22SmartHome%20Elite%22,%22short_name%22:%22SmartHome%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22background_color%22:%22#F5F5DC%22,%22theme_color%22:%22#AEC6CF%22}">
+    <title>SmartHome Elite - Quantum-Advanced Modern Living</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Quantum-advanced pastel blue and beige color palette with dynamic theming and custom properties */
+        :root {
+            --primary: #AEC6CF; /* Soft pastel blue */
+            --secondary: #F5F5DC; /* Warm beige */
+            --accent: #D2B48C; /* Elegant tan */
+            --highlight: #87CEEB; /* Sky blue */
+            --text: #5F6B7A; /* Sophisticated gray */
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --deep-blue: #2C3E50; /* For contrast */
+            --animation-duration: 0.5s;
+            --border-radius: 20px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--secondary);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            transition: background var(--animation-duration), color var(--animation-duration);
+        }
+
+        /* Advanced header with glassmorphism, theme toggle, voice search, and notification bell */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            display: block;
+            transition: all var(--animation-duration) ease;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--highlight);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 10px 25px var(--shadow);
+            z-index: 1;
+            border-radius: 15px;
+            top: 100%;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text);
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle, .voice-search, .notification {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform var(--animation-duration);
+        }
+
+        .theme-toggle:hover, .voice-search:hover, .notification:hover {
+            transform: scale(1.1);
+        }
+
+        .notification::after {
+            content: '3';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.7rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero with advanced parallax, typing effect, 3D tilt, particle background, and WebGL canvas */
+        .hero {
+            background: var(--gradient);
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://via.placeholder.com/1920x600/AEC6CF/D2B48C?text=Quantum+Advanced+Smart+Home') no-repeat center/cover;
+            opacity: 0.25;
+            transform: scale(1.1);
+            animation: parallax 10s ease-in-out infinite alternate;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .webgl-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes parallax {
+            0% { transform: scale(1.1) translateY(0); }
+            100% { transform: scale(1.1) translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: slideIn 1.5s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        .hero-content:hover {
+            transform: rotateX(5deg) rotateY(5deg);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .btn {
+            background: var(--highlight);
+            color: var(--deep-blue);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all var(--animation-duration) ease;
+            box-shadow: 0 6px 20px rgba(135, 206, 235, 0.3);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.5);
+        }
+
+        /* Features with advanced grid, hover effects, staggered animation, icons, and glow */
+        .features {
+            padding: 6rem 3rem;
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 49%, var(--accent) 50%, transparent 51%);
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .feature {
+            background: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all var(--animation-duration) ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .feature:nth-child(1) { animation-delay: 0.2s; }
+        .feature:nth-child(2) { animation-delay: 0.4s; }
+        .feature:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity var(--animation-duration);
+            transform: rotate(45deg);
+        }
+
+        .feature:hover::before {
+            opacity: 0.1;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .feature .icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover .icon {
+            transform: scale(1.1);
+        }
+
+        .feature h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Quantum-advanced dashboard with live chart, carousel, and real-time data simulation */
+        .dashboard {
+            padding: 6rem 3rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .dashboard h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .chart-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(15px);
+        }
+
+        canvas {
+            width: 100%;
+            height: 300px;
+        }
+
+        .real-time-data {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+        }
+
+        .data-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .dash-item {
+            min-width: 250px;
+            margin: 0 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform var(--animation-duration);
+        }
+
+        .dash-item:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .carousel-controls.prev { left: 10px; }
+        .carousel-controls.next { right: 10px; }
+
+        /* AI Chatbot section with advanced responses */
+        .chatbot {
+            padding: 6rem 3rem;
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .chatbot h3 {
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .chat-window {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px var(--shadow);
+            padding: 1rem;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+        }
+
+        .chat-input button {
+            background: var(--highlight);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* VR Preview section */
+        .vr-preview {
+            padding: 6rem 3rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .vr-preview h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .vr-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(15px);
+        }
+
+        .vr-btn {
+            background: var(--highlight);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--animation-duration);
+        }
+
+        .vr-btn:hover {
+            background: white;
+            color: var(--deep-blue);
+            transform: scale(1.05);
+        }
+
+        /* Footer with advanced contact form, social links, and newsletter */
+        footer {
+            background: var(--deep-blue);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--highlight);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 15px;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            background: var(--highlight);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background var(--animation-duration);
+        }
+
+        .contact-form button:hover {
+            background: var(--accent);
+        }
+
+        .newsletter {
+            margin-top: 2rem;
+        }
+
+        .newsletter input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+        }
+
+        .newsletter button {
+            background: var(--highlight);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: color var(--animation-duration);
+        }
+
+        .social-links a:hover {
+            color: var(--highlight);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                padding: 3rem 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard, .chatbot, .vr-preview {
+                padding: 3rem 1rem;
+            }
+
+            .real-time-data {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .carousel {
+                max-width: 100%;
+            }
+
+            .dash-item {
+                min-width: 200px;
+            }
+        }
+
+        /* Dark mode toggle */
+        body.dark {
+            --primary: #5F6B7A;
+            --secondary: #2C3E50;
+            --accent: #34495E;
+            --highlight: #3498DB;
+            --text: #ECF0F1;
+            --deep-blue: #1B2631;
+        }
+
+        body.dark .feature, body.dark .chat-window {
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        body.dark .dropdown-content {
+            background: var(--secondary);
+        }
+
+        body.dark .dropdown-content a {
+            color: var(--text);
+        }
+
+        body.dark .dropdown-content a:hover {
+            background: var(--accent);
+            color: var(--highlight);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SmartHome Elite</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#chatbot">AI Assistant</a></li>
+                <li><a href="#vr">VR Preview</a></li>
+                <li class="dropdown">
+                    <a href="#">More ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#">About</a>
+                        <a href="#">Support</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button class="voice-search">🎤</button>
+            <button class="notification">🔔</button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="particles" id="particles"></div>
+        <canvas class="webgl-canvas" id="webgl"></canvas>
+        <div class="hero-content">
+            <h1>Quantum-Advanced Smart Home</h1>
+            <p>Experience the future of living with AI-powered automation, real-time monitoring, and immersive 3D visualization. Control your world with a touch, voice, or thought.</p>
+            <a href="#dashboard" class="btn">Explore Dashboard</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature">
+            <div class="icon">🤖</div>
+            <h3>AI Automation</h3>
+            <p>Intelligent scenes that adapt to your lifestyle. From morning routines to security protocols, let AI handle the details.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">📊</div>
+            <h3>Real-Time Monitoring</h3>
+            <p>Live sensor data with predictive analytics. Monitor temperature, security, and energy usage from anywhere.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🔒</div>
+            <h3>Advanced Security</h3>
+            <p>Multi-layered protection with facial recognition, motion detection, and instant alerts. Your safety, our priority.</p>
+        </div>
+    </section>
+
+    <section class="dashboard" id="dashboard">
+        <h2>Live Smart Home Dashboard</h2>
+        <div class="real-time-data">
+            <div class="data-item">
+                <h4>Temperature</h4>
+                <p id="temp">22°C</p>
+            </div>
+            <div class="data-item">
+                <h4>Humidity</h4>
+                <p id="humidity">65%</p>
+            </div>
+            <div class="data-item">
+                <h4>Security Status</h4>
+                <p id="security">Armed</p>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="energyChart"></canvas>
+        </div>
+        <div class="carousel">
+            <div class="carousel-inner" id="carouselInner">
+                <div class="dash-item">
+                    <h4>Living Room</h4>
+                    <p>Lights: ON | AC: 24°C</p>
+                </div>
+                <div class="dash-item">
+                    <h4>Kitchen</h4>
+                    <p>Appliances: 3 Active</p>
+                </div>
+                <div class="dash-item">
+                    <h4>Bedroom</h4>
+                    <p>Curtains: 50% | Alarm: Set</p>
+                </div>
+                <div class="dash-item">
+                    <h4>Garage</h4>
+                    <p>Door: Closed | Camera: Active</p>
+                </div>
+            </div>
+            <button class="carousel-controls prev" onclick="prevSlide()">‹</button>
+            <button class="carousel-controls next" onclick="nextSlide()">›</button>
+        </div>
+    </section>
+
+    <section class="chatbot" id="chatbot">
+        <h3>AI Home Assistant</h3>
+        <div class="chat-window">
+            <div class="chat-messages" id="chatMessages">
+                <p><strong>AI:</strong> Hello! How can I help you control your smart home today?</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="vr-preview" id="vr">
+        <h2>Immersive VR Preview</h2>
+        <div class="vr-container">
+            <p>Step into your future home with our 3D VR tour. Experience every room, control every device, all from the comfort of your current space.</p>
+            <button class="vr-btn" onclick="startVR()">Start VR Experience</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button>Send Message</button>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to newsletter">
+            <button>Subscribe</button>
+        </div>
+        <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">🐦</a>
+            <a href="#">📷</a>
+            <a href="#">💼</a>
+        </div>
+        <p>&copy; 2023 SmartHome Elite. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const themeBtn = document.querySelector('.theme-toggle');
+            themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        }
+
+        // Chart.js for energy usage
+        const ctx = document.getElementById('energyChart').getContext('2d');
+        const energyChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Energy Usage (kWh)',
+                    data: [12, 15, 10, 18, 14, 16, 13],
+                    borderColor: '#87CEEB',
+                    backgroundColor: 'rgba(135, 206, 235, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Simulate real-time data updates
+        setInterval(() => {
+            document.getElementById('temp').textContent = (20 + Math.random() * 5).toFixed(1) + '°C';
+            document.getElementById('humidity').textContent = (60 + Math.random() * 10).toFixed(0) + '%';
+            const statuses = ['Armed', 'Disarmed', 'Partially Armed'];
+            document.getElementById('security').textContent = statuses[Math.floor(Math.random() * statuses.length)];
+        }, 3000);
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.dash-item');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const carouselInner = document.getElementById('carouselInner');
+            carouselInner.style.transform = `translateX(-${index * 270}px)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide carousel
+        setInterval(nextSlide, 5000);
+
+        // AI Chatbot responses
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            if (input.value.trim()) {
+                messages.innerHTML += `<p><strong>You:</strong> ${input.value}</p>`;
+                setTimeout(() => {
+                    const responses = [
+                        "I've turned on the living room lights for you.",
+                        "The temperature is set to 22°C in the bedroom.",
+                        "Security system is now armed.",
+                        "Playing your favorite playlist in the kitchen.",
+                        "Curtains are opening in the living room.",
+                        "I've scheduled the AC to turn on at 6 PM."
+                    ];
+                    messages.innerHTML += `<p><strong>AI:</strong> ${responses[Math.floor(Math.random() * responses.length)]}</p>`;
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+                input.value = '';
+            }
+        }
+
+        // Enter key for chat
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // VR Experience placeholder
+        function startVR() {
+            alert('VR Experience launching... (This would integrate with WebXR API in a real implementation)');
+        }
+
+        // WebGL placeholder (would require Three.js or similar)
+        function initWebGL() {
+            const canvas = document.getElementById('webgl');
+            const gl = canvas.getContext('webgl');
+            if (gl) {
+                gl.clearColor(0.0, 0.0, 0.0, 0.0);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+            }
+        }
+
+        // Initialize everything
+        createParticles();
+        initWebGL();
+    </script>
+</body>
+</html>
