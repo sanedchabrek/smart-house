@@ -19,7 +19,7 @@ const Sidebar = () => {
     <div className="w-64 bg-white/10 backdrop-blur-md h-screen shadow-lg border-r border-white/20">
       <div className="p-6">
         <h1 className="text-2xl font-bold text-primary">Smart House</h1>
-        <p className="text-sm text-gray-600">Admin Dashboard</p>
+        <p className="text-sm text-gray-600">Smart Home Control</p>
       </div>
       <nav className="px-4 space-y-2">
         {menuItems.map((item) => {
