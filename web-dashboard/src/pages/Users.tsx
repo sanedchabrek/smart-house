@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion'
 import { Plus, Edit, Trash2 } from 'lucide-react'
-import { Button } from '../components/ui/button'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../components/ui/table'
 
 const Users = () => {
   // Mock data
@@ -10,6 +8,22 @@ const Users = () => {
     { id: 2, name: 'Jane Smith', email: 'jane@example.com', home: 'Home 2', role: 'User' },
     { id: 3, name: 'Bob Johnson', email: 'bob@example.com', home: 'Home 1', role: 'User' },
   ]
+
+  // Simple Button component replacement
+  const Button = ({ children, variant = 'default', size = 'default', ...props }) => (
+    <button
+      className={`
+        inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors
+        ${variant === 'default' ? 'bg-blue-600 text-white hover:bg-blue-700' : ''}
+        ${variant === 'ghost' ? 'hover:bg-gray-100' : ''}
+        ${size === 'default' ? 'h-10 px-4 py-2' : 'h-8 px-3 text-xs'}
+        ${props.className || ''}
+      `}
+      {...props}
+    >
+      {children}
+    </button>
+  )
 
   return (
     <div className="p-6 space-y-6">
@@ -28,26 +42,34 @@ const Users = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 overflow-hidden"
+        className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
       >
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Home</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200">
+              <th className="text-left p-4 font-semibold text-gray-800">Name</th>
+              <th className="text-left p-4 font-semibold text-gray-800">Email</th>
+              <th className="text-left p-4 font-semibold text-gray-800">Home</th>
+              <th className="text-left p-4 font-semibold text-gray-800">Role</th>
+              <th className="text-left p-4 font-semibold text-gray-800">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
             {users.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.home}</TableCell>
-                <TableCell>{user.role}</TableCell>
-                <TableCell>
+              <tr key={user.id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="p-4 text-gray-700">{user.name}</td>
+                <td className="p-4 text-gray-700">{user.email}</td>
+                <td className="p-4 text-gray-700">{user.home}</td>
+                <td className="p-4">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    user.role === 'Admin' 
+                      ? 'bg-red-100 text-red-800' 
+                      : 'bg-blue-100 text-blue-800'
+                  }`}>
+                    {user.role}
+                  </span>
+                </td>
+                <td className="p-4">
                   <div className="flex space-x-2">
                     <Button variant="ghost" size="sm">
                       <Edit className="w-4 h-4" />
@@ -56,11 +78,11 @@ const Users = () => {
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
-                </TableCell>
-              </TableRow>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
+          </tbody>
+        </table>
       </motion.div>
     </div>
   )
